@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.dao.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.cms.model.Article" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="inputTime" property="inputtime" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.cms.model.Article" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <select id="getArticleList"  resultMap="ResultMapWithBLOBs" >
+    select * from article where id between #{id}-4 and #{id}-1 order by id desc
+  </select>
+  <select id="getTopArticle"  resultMap="ResultMapWithBLOBs" >
+    select * from (select *  from article   order by id desc) a limit #{id}
+  </select>
+  <select id="getArticleById"  resultMap="ResultMapWithBLOBs" >
+    select * from article where id=#{id};
+  </select>
+  <insert id="insertArticle" parameterType="com.cms.model.Article" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO  Article( title,inputtime,content,img)
+    VALUES (#{title}, #{inputtime}, #{content},#{img})
+  </insert>
+  <update id="updateArticle" parameterType="com.cms.model.Article">
+    update Article
+    <set>
+      <if test="title!= null">title=#{title},</if>
+      <if test="content!= null">content=#{content},</if>
+      <if test="img!= null">img=#{img},</if>
+    </set>
+    where id=#{id}
+  </update>
+
+
+</mapper>
