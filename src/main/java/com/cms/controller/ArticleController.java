@@ -84,7 +84,6 @@ public class ArticleController {
             String path=null;
             String type=null;
             String fileName=img.getOriginalFilename();
-            System.out.println("上传的文件原名称:"+fileName);
             type=fileName.indexOf(".")!=-1?fileName.substring(fileName.lastIndexOf(".")+1, fileName.length()):null;
             if ("GIF".equals(type.toUpperCase())||"PNG".equals(type.toUpperCase())||"JPG".equals(type.toUpperCase())) {
                 String realPath=request.getSession().getServletContext().getRealPath("/")+"img/";
