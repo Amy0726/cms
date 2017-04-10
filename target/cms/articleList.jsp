@@ -28,9 +28,9 @@
     <ul>
       <c:forEach items="${list}" var="article" varStatus="stat">
         <li id="tr${article.id}">
-            <a target="_blank" href="/articleInfo?id=${article.id}" >
+            <a target="_blank" href="${context}/articleInfo?id=${article.id}" >
                 <div class="inner">
-                    <div class="img_box"><img src="img/${article.img}"/></div>
+                    <div class="img_box"><img src="${context}/img/${article.img}"/></div>
                     <div class="intor"><h3>${article.title}</h3><div class="time_div"><fmt:formatDate pattern="yyyy-MM-dd" value="${article.inputtime}" /></div></div>
                 </div>
             </a>
@@ -44,7 +44,7 @@
 </div>
 </body>
 </html>
-<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="${context}/js/jquery-1.11.0.js"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -68,7 +68,7 @@
                         var day = i.getDate();
                         if(month<10) month="0"+month;
                         if(day<10) day="0"+day;
-                        $("ul").append("<li id='tr"+item.id+"'><a target='_blank'  href='/articleInfo?id="+item.id+"' ><div class='inner'><div class='img_box'><img src='img/"+item.img+"'/></div> <div class='intor'><h3>"+item.title+"</h3><div class='time_div'>"+ year + "-" + month + "-" + day+"</div></div></div></a></li>");
+                        $("ul").append("<li id='tr"+item.id+"'><a target='_blank'  href='${context}/articleInfo?id="+item.id+"' ><div class='inner'><div class='img_box'><img src='${context}/img/"+item.img+"'/></div> <div class='intor'><h3>"+item.title+"</h3><div class='time_div'>"+ year + "-" + month + "-" + day+"</div></div></div></a></li>");
 
                     });
                 },

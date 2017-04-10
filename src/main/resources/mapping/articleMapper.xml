@@ -20,11 +20,11 @@
     select * from article where id=#{id};
   </select>
   <insert id="insertArticle" parameterType="com.cms.model.Article" useGeneratedKeys="true" keyProperty="id">
-    INSERT INTO  Article( title,inputtime,content,img)
+    INSERT INTO  article( title,inputtime,content,img)
     VALUES (#{title}, #{inputtime}, #{content},#{img})
   </insert>
   <update id="updateArticle" parameterType="com.cms.model.Article">
-    update Article
+    update article
     <set>
       <if test="title!= null">title=#{title},</if>
       <if test="content!= null">content=#{content},</if>

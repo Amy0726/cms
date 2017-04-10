@@ -35,8 +35,8 @@
 </div>
 <div class="menu" alert="center">
     <ul>
-       <a href="/editArticleList"> <li>编辑文章</li></a>
-       <a href="/addArticle"> <li>创建文章</li></a>
+       <a href="${context}/editArticleList"> <li>编辑文章</li></a>
+       <a href="${context}/addArticle"> <li>创建文章</li></a>
     </ul>
 </div>
     <form action="saveArticle" method="POST" enctype="multipart/form-data">
@@ -49,11 +49,11 @@
         </c:if>
         <c:if test="${article!=null}">
             <a class="file"><input class="file"   type="file" name='img' id="doc2" onchange="javascript:setImagePreview(2)"  title='选择上传的图片' style="width:200px"/>选择上传的图片</a>
-            <p id="localImag"><img src="target/cms/img/${article.img}" id="preview2" /></p>
+            <p id="localImag"><img src="${context}/img/${article.img}" id="preview2" /></p>
         </c:if>
         </div>
-    <div class="area"><textarea name="content" id="myEditor" style="height: 500px;width: 700px;"></textarea></div>
-    <input type="submit" class="save"></input>
+    <div class="area"><textarea name="content" id="myEditor" style="height: 500px;width: 700px;" value="${article.content}"></textarea></div>
+    <input type="submit" class="save" />
     </div>
     </form>
 </div>

@@ -1,5 +1,7 @@
 com\cms\controller\ArticleController.class
 com\cms\model\Article.class
+com\cms\model\WebConfig.class
+com\cms\util\SpringStart.class
 com\cms\dao\ArticleMapper.class
 com\cms\service\impl\ArticleServiceImpl.class
 com\cms\service\ArticleService.class

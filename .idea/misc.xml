@@ -13,9 +13,4 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="-1">
-    <configuration>C:\Users\wyf\AppData\Roaming\Subversion</configuration>
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="false" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="false" />
-  </component>
 </project>

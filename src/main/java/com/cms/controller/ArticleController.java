@@ -84,15 +84,17 @@ public class ArticleController {
             String path=null;
             String type=null;
             String fileName=img.getOriginalFilename();
-            type=fileName.indexOf(".")!=-1?fileName.substring(fileName.lastIndexOf(".")+1, fileName.length()):null;
-            if ("GIF".equals(type.toUpperCase())||"PNG".equals(type.toUpperCase())||"JPG".equals(type.toUpperCase())) {
-                String realPath=request.getSession().getServletContext().getRealPath("/")+"img/";
-                trueFileName=String.valueOf(System.currentTimeMillis())+fileName;
-                path=realPath+trueFileName;
-                try {
-                    img.transferTo(new File(path));
-                } catch (IOException e) {
-                    e.printStackTrace();
+            if(fileName!="") {
+                type = fileName.indexOf(".") != -1 ? fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()) : null;
+                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+                    String realPath = request.getSession().getServletContext().getRealPath("/") + "img/";
+                    trueFileName = String.valueOf(System.currentTimeMillis()) + fileName;
+                    path = realPath + trueFileName;
+                    try {
+                        img.transferTo(new File(path));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 

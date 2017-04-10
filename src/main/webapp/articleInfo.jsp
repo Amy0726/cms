@@ -19,11 +19,11 @@
 </head>
 <body>
 <div class="post-wrapper">
-    <div class="title"> <h1>${article.title}</h1><div>
+    <div class="title"> <h1>${article.title}</h1></div>
     <div class="time"><fmt:formatDate pattern="yyyy-MM-dd" value="${article.inputtime}" /></div>
-    <div class="img-div"><img src="img/${article.img}"/></div>
+    <div class="img-div"><img src="${context}/img/${article.img}"/></div>
     <div class="content">${article.content}</div>
-    <a target="_blank" href="/editArticle?id=${article.id}" class="edit">编辑文章</a>
-</div>
+    <a target="_blank" href="${context}/editArticle?id=${article.id}" class="edit">编辑文章</a>
+    </div>
 </body>
 </html>

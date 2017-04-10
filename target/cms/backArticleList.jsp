@@ -42,8 +42,8 @@
     </div>
     <div class="menu" alert="center">
         <ul>
-            <a href="/editArticleList"> <li>编辑文章</li></a>
-            <a href="/addArticle"> <li>创建文章</li></a>
+            <a href="${context}/editArticleList"> <li>编辑文章</li></a>
+            <a href="${context}/addArticle"> <li>创建文章</li></a>
         </ul>
     </div>
     <div class="post-wrapper">
@@ -52,9 +52,9 @@
                 <ul id="ulList">
                     <c:forEach items="${list}" var="article" varStatus="stat">
                         <li id="tr${article.id}">
-                            <a target="_blank" href="/editArticle?id=${article.id}" >
+                            <a target="_blank" href="${context}/editArticle?id=${article.id}" >
                                 <div class="inner">
-                                    <div class="img_box"><img src="img/${article.img}"/></div>
+                                    <div class="img_box"><img src="${context}/img/${article.img}"/></div>
                                     <div class="intor"><h3>${article.title}</h3><div class="time_div"><fmt:formatDate pattern="yyyy-MM-dd" value="${article.inputtime}" /></div></div>
                                 </div>
                             </a>
@@ -93,7 +93,7 @@
                         var day = i.getDate();
                         if(month<10) month="0"+month;
                         if(day<10) day="0"+day;
-                        $("#ulList").append("<li id='tr"+item.id+"'><a target='_blank'  href='/editArticle?id="+item.id+"' ><div class='inner'><div class='img_box'><img src='img/"+item.img+"'/></div> <div class='intor'><h3>"+item.title+"</h3><div class='time_div'>"+ year + "-" + month + "-" + day+"</div></div></div></a></li>");
+                        $("#ulList").append("<li id='tr"+item.id+"'><a target='_blank'  href='${context}/editArticle?id="+item.id+"' ><div class='inner'><div class='img_box'><img src='${context}/img/"+item.img+"'/></div> <div class='intor'><h3>"+item.title+"</h3><div class='time_div'>"+ year + "-" + month + "-" + day+"</div></div></div></a></li>");
 
                     });
                 },
